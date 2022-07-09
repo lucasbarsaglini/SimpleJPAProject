@@ -15,8 +15,9 @@ public class Program {
 		
 		Person p = em.find(Person.class, 3);
 		em.getTransaction().begin();
-		em.remove(p);
+		em.merge(p).setEmail("anamaria@gmail.com");
 		em.getTransaction().commit();
+		System.out.println(p);
 		
 		System.out.println("The end!");
 		em.close();
